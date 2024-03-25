@@ -1,0 +1,25 @@
+<form method="POST" action="{{url_for('index')}}" enctype="multipart/form-data">
+  {{ form.csrf_token}} {{ form.title.label}} {{ form.title }} <br />
+  <ul>
+    {% for error in form.title.errors%} {{ error}} {% endfor %}
+  </ul>
+  {{ form.amount.label}} {{ form.amount }} <br />
+  <ul>
+    {% for error in form.amount.errors%} {{ error}} {% endfor %}
+  </ul>
+  {% if form.available%} {{ form.available.label}} {{ form.available }} <br />
+  {% endif%} {% if form.email%} {{ form.email.label}} {{ form.email }} <br />
+  <ul>
+    {% for error in form.email.errors%} {{ error}} {% endfor %}
+  </ul>
+  {% endif%} {{form.offer_date.label}}: {{form.offer_date}}
+  <ul>
+    {% for error in form.offer_date.errors%} {{ error}} {% endfor %}
+  </ul>
+  {{form.cover.label}}: {{form.cover}}
+  <ul>
+    {% for error in form.cover.errors%} {{ error}} {% endfor %}
+  </ul>
+
+  <input type="submit" value="GO!" />
+</form>
